@@ -1,2 +1,5 @@
-/bin
-/obj
+/PgyerManager/bin
+
+/PgyerManager/obj
+
+/.vs
