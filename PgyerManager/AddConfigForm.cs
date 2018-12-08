@@ -17,7 +17,32 @@ namespace PgyerManager
         public AddConfigForm()
         {
             InitializeComponent();
+            config = new CustomConfig();
         }
+
+        public AddConfigForm(CustomConfig config)
+        {
+            InitializeComponent();
+            if (config != null)
+            {
+                this.config = config;
+                SetValues();
+            }
+            else
+            {
+                this.config = new CustomConfig();
+            }
+        }
+
+        private void SetValues()
+        {
+            tbName.Text = config.Name;
+            tbPath.Text = config.Path;
+            tbApiKey.Text = config.ApiKey;
+            tbCmd.Text = config.Cmd;
+            tbMessageTemplate.Text = config.MessgeTemplate;
+        }
+
 
         private void lOpenFile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -33,17 +58,16 @@ namespace PgyerManager
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Config = new CustomConfig();
             Config.Name = tbName.Text.Trim();
             Config.Path = tbPath.Text.Trim();
             Config.ApiKey = tbApiKey.Text.Trim();
             Config.MessgeTemplate = tbMessageTemplate.Text.Trim();
             Config.Cmd = tbCmd.Text.Trim();
-           
-
             this.DialogResult = DialogResult.OK;
             Close();
         }
+
+
 
         private void tbName_TextChanged(object sender, EventArgs e)
         {
@@ -80,6 +104,16 @@ namespace PgyerManager
             
 
         }
-        
+
+        private void btnOutputHelp_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("您可以在文本加入如下通配符，用于替换文本：").AppendLine().AppendLine();
+            sb.Append("下载链接 - ").Append("%l").AppendLine().AppendLine();
+            sb.Append("时间 - ").Append("%t").AppendLine().AppendLine();
+            sb.Append("平台 - ").Append("%p").AppendLine().AppendLine();
+            sb.Append("名称 - ").Append("%n").AppendLine().AppendLine();
+            MessageBox.Show(sb.ToString(), "帮助 - 通配符", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

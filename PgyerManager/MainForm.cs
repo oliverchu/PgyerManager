@@ -283,30 +283,35 @@ namespace PgyerManager
         {
             tbKey.Text = Properties.Settings.Default.apiKey;
             tbFile.Focus();
-            updateListView();
+            UpdateListView();
             if (currentConfig != null)
             {
                 tbFile.Text = currentConfig.Path;
                 btnUpload.PerformClick();
             }
-
-           
+            
         }
 
-        private void updateListView()
+        private void UpdateListView()
         {
             lvConfig.Items.Clear();
             lvConfig.BeginUpdate();
+            comboConfig.Items.Clear();
             foreach (var c in confList)
             {
-                addListItem(c);
+                AddListItem(c);
+                comboConfig.Items.Add(c.Name);
             }
-
             lvConfig.EndUpdate();
             if (defaultConfig != -1)
             {
-                lvConfig.Items[defaultConfig].BackColor = Color.Gray;
+                lvConfig.Items[defaultConfig].BackColor = Color.FromArgb(41, 206, 173);
+                lvConfig.Items[defaultConfig].ForeColor = Color.White;
                 tbFile.Text = confList[defaultConfig].Path;
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                lvConfig.Columns[i].Width = -1; //每一列自适应宽度
             }
         }
 
@@ -343,17 +348,16 @@ namespace PgyerManager
             {
                 CustomConfig r = form.Config;
                 confList.Add(r);
-                addListItem(r);
-
+                AddListItem(r);
             }
         }
 
-        private void addListItem(CustomConfig config)
+        private void AddListItem(CustomConfig config)
         {
-            ListViewItem item = new ListViewItem(new[] { config.Name, config.Path, config.ApiKey, config.MessgeTemplate, config.Cmd });
+            ListViewItem item = new ListViewItem(new[] { config.Name, config.MessgeTemplate, config.Cmd, config.Path, config.ApiKey});
             if ((lvConfig.Items.Count + 1) % 2 == 0)
             {
-                item.BackColor = Color.AliceBlue; ;
+                item.BackColor = Color.WhiteSmoke;
             }
             else
             {
@@ -393,7 +397,7 @@ namespace PgyerManager
             
                 defaultConfig = lvConfig.SelectedIndices[0];
                 MessageBox.Show(defaultConfig+"");
-                updateListView();
+                UpdateListView();
             }
         }
 
@@ -411,8 +415,45 @@ namespace PgyerManager
             {
                 defaultConfig = lvConfig.SelectedIndices[0];
                 confList.RemoveAt(defaultConfig);
-                updateListView();
+                UpdateListView();
             }
+        }
+
+        private void lvConfig_DoubleClick(object sender, EventArgs e)
+        {
+            btnConfigEdit.PerformClick();
+        }
+
+        private void btnConfigEdit_Click(object sender, EventArgs e)
+        {
+            if (lvConfig.SelectedIndices.Count > 0)
+            {
+                int idx = lvConfig.SelectedIndices[0];
+                AddConfigForm form = new AddConfigForm(confList[idx]);
+                DialogResult result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    confList[idx] = form.Config;
+                    UpdateListView();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("您还没有选择一个配置！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private void menuAbout_Click(object sender, EventArgs e)
+        {
+            AboutBox box = new AboutBox();
+            box.ShowDialog();
+        }
+
+        private void comboConfig_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

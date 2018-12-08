@@ -44,6 +44,7 @@
             this.mErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnOutputHelp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,15 +81,15 @@
             this.tbPath.Location = new System.Drawing.Point(56, 39);
             this.tbPath.Name = "tbPath";
             this.tbPath.Size = new System.Drawing.Size(246, 21);
-            this.tbPath.TabIndex = 1;
+            this.tbPath.TabIndex = 2;
             this.tbPath.TextChanged += new System.EventHandler(this.tbPath_TextChanged);
             // 
             // tbApiKey
             // 
-            this.tbApiKey.Location = new System.Drawing.Point(47, 78);
+            this.tbApiKey.Location = new System.Drawing.Point(56, 78);
             this.tbApiKey.Name = "tbApiKey";
-            this.tbApiKey.Size = new System.Drawing.Size(255, 21);
-            this.tbApiKey.TabIndex = 1;
+            this.tbApiKey.Size = new System.Drawing.Size(246, 21);
+            this.tbApiKey.TabIndex = 3;
             // 
             // label2
             // 
@@ -101,15 +102,17 @@
             // 
             // tbMessageTemplate
             // 
-            this.tbMessageTemplate.Location = new System.Drawing.Point(14, 145);
+            this.tbMessageTemplate.Location = new System.Drawing.Point(12, 137);
+            this.tbMessageTemplate.Multiline = true;
             this.tbMessageTemplate.Name = "tbMessageTemplate";
-            this.tbMessageTemplate.Size = new System.Drawing.Size(288, 21);
-            this.tbMessageTemplate.TabIndex = 1;
+            this.tbMessageTemplate.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbMessageTemplate.Size = new System.Drawing.Size(288, 75);
+            this.tbMessageTemplate.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 121);
+            this.label3.Location = new System.Drawing.Point(12, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 3;
@@ -117,15 +120,15 @@
             // 
             // tbCmd
             // 
-            this.tbCmd.Location = new System.Drawing.Point(12, 206);
+            this.tbCmd.Location = new System.Drawing.Point(12, 239);
             this.tbCmd.Name = "tbCmd";
             this.tbCmd.Size = new System.Drawing.Size(290, 21);
-            this.tbCmd.TabIndex = 1;
+            this.tbCmd.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 180);
+            this.label4.Location = new System.Drawing.Point(11, 220);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 12);
             this.label4.TabIndex = 3;
@@ -133,13 +136,16 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnAdd.Enabled = false;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnAdd.Location = new System.Drawing.Point(12, 266);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(290, 36);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "确定";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // openFileDialog1
@@ -170,11 +176,27 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "*";
             // 
+            // btnOutputHelp
+            // 
+            this.btnOutputHelp.BackColor = System.Drawing.Color.Transparent;
+            this.btnOutputHelp.BackgroundImage = global::PgyerManager.Properties.Resources.ic_help;
+            this.btnOutputHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOutputHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOutputHelp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnOutputHelp.Location = new System.Drawing.Point(275, 106);
+            this.btnOutputHelp.Name = "btnOutputHelp";
+            this.btnOutputHelp.Size = new System.Drawing.Size(25, 25);
+            this.btnOutputHelp.TabIndex = 7;
+            this.btnOutputHelp.UseVisualStyleBackColor = false;
+            this.btnOutputHelp.Click += new System.EventHandler(this.btnOutputHelp_Click);
+            // 
             // AddConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(329, 314);
+            this.Controls.Add(this.btnOutputHelp);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAdd);
@@ -190,6 +212,7 @@
             this.Controls.Add(this.tbName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddConfigForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -219,5 +242,6 @@
         private System.Windows.Forms.ErrorProvider mErrorProvider;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnOutputHelp;
     }
 }

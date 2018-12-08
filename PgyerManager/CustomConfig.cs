@@ -3,7 +3,7 @@
 namespace PgyerManager
 {
     [Serializable()]
-    class CustomConfig
+    public class CustomConfig
     {
         private string name;
         private string path;
