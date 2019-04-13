@@ -114,10 +114,8 @@ namespace PgyerManager
                 {
                     case "ArgumentNullException":
                     case "MyException":
-                        //do something.
                         break;
                     default:
-                        //do something.
                         break;
                 }
             }
@@ -189,9 +187,8 @@ namespace PgyerManager
             {
                 return JsonConvert.DeserializeObject<T>(input);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
                 return default(T);
             }
         }
@@ -396,7 +393,7 @@ namespace PgyerManager
             {
             
                 defaultConfig = lvConfig.SelectedIndices[0];
-                MessageBox.Show(defaultConfig+"");
+                MessageBox.Show("设置成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 UpdateListView();
             }
         }

@@ -11,6 +11,7 @@ namespace PgyerManager
     public partial class AddConfigForm : Form
     {
         private CustomConfig config;
+        private bool validResult = false;
 
         internal CustomConfig Config { get => config; set => config = value; }
 
@@ -18,6 +19,7 @@ namespace PgyerManager
         {
             InitializeComponent();
             config = new CustomConfig();
+        
         }
 
         public AddConfigForm(CustomConfig config)
@@ -58,6 +60,11 @@ namespace PgyerManager
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            CheckEmpty();
+            if (!validResult)
+            {
+                return;
+            }
             Config.Name = tbName.Text.Trim();
             Config.Path = tbPath.Text.Trim();
             Config.ApiKey = tbApiKey.Text.Trim();
@@ -83,26 +90,25 @@ namespace PgyerManager
             if (tbName.Text.Trim().Length == 0)
             {
                 mErrorProvider.SetError(tbName, "名称不能为空");
-                btnAdd.Enabled = false;
+                validResult = false;
                 return;
             }
-            else if(tbName.Text.Trim().Length != 0)
+            else
             {
                 mErrorProvider.SetError(tbName, null);
+                validResult = true;
             }
             if (tbPath.Text.Trim().Length == 0)
             {
                 mErrorProvider.SetError(tbPath, "路径不能为空");
-                btnAdd.Enabled = false;
+                validResult = false;
                 return;
             }
             else if (tbPath.Text.Trim().Length != 0)
             {
                 mErrorProvider.SetError(tbPath, null);
-                btnAdd.Enabled = true;
+                validResult = true;
             }
-            
-
         }
 
         private void btnOutputHelp_Click(object sender, EventArgs e)
@@ -114,6 +120,11 @@ namespace PgyerManager
             sb.Append("平台 - ").Append("%p").AppendLine().AppendLine();
             sb.Append("名称 - ").Append("%n").AppendLine().AppendLine();
             MessageBox.Show(sb.ToString(), "帮助 - 通配符", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void AddConfigForm_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

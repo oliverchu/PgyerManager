@@ -137,7 +137,6 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAdd.Enabled = false;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnAdd.Location = new System.Drawing.Point(12, 266);
@@ -219,6 +218,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加配置";
+            this.Load += new System.EventHandler(this.AddConfigForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

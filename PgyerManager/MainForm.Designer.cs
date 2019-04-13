@@ -62,9 +62,9 @@
             this.sLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.comboConfig = new System.Windows.Forms.ToolStripComboBox();
             this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -108,7 +108,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(13, 27);
+            this.tabControl1.Location = new System.Drawing.Point(12, 44);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(636, 541);
@@ -138,7 +138,7 @@
             this.btnOpenFileMain.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnOpenFileMain.Location = new System.Drawing.Point(432, 30);
             this.btnOpenFileMain.Name = "btnOpenFileMain";
-            this.btnOpenFileMain.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenFileMain.Size = new System.Drawing.Size(75, 25);
             this.btnOpenFileMain.TabIndex = 2;
             this.btnOpenFileMain.Text = "打开";
             this.btnOpenFileMain.UseVisualStyleBackColor = false;
@@ -266,7 +266,7 @@
             this.btnConfigDelete.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnConfigDelete.Location = new System.Drawing.Point(535, 319);
             this.btnConfigDelete.Name = "btnConfigDelete";
-            this.btnConfigDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnConfigDelete.Size = new System.Drawing.Size(75, 25);
             this.btnConfigDelete.TabIndex = 13;
             this.btnConfigDelete.Text = "删除";
             this.btnConfigDelete.UseVisualStyleBackColor = false;
@@ -279,7 +279,7 @@
             this.btnConfigDefault.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnConfigDefault.Location = new System.Drawing.Point(169, 319);
             this.btnConfigDefault.Name = "btnConfigDefault";
-            this.btnConfigDefault.Size = new System.Drawing.Size(75, 23);
+            this.btnConfigDefault.Size = new System.Drawing.Size(75, 25);
             this.btnConfigDefault.TabIndex = 12;
             this.btnConfigDefault.Text = "设置默认";
             this.btnConfigDefault.UseVisualStyleBackColor = false;
@@ -334,7 +334,7 @@
             this.btnConfigEdit.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnConfigEdit.Location = new System.Drawing.Point(88, 319);
             this.btnConfigEdit.Name = "btnConfigEdit";
-            this.btnConfigEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnConfigEdit.Size = new System.Drawing.Size(75, 25);
             this.btnConfigEdit.TabIndex = 11;
             this.btnConfigEdit.Text = "编辑";
             this.btnConfigEdit.UseVisualStyleBackColor = false;
@@ -347,7 +347,7 @@
             this.btnConfigAdd.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnConfigAdd.Location = new System.Drawing.Point(7, 319);
             this.btnConfigAdd.Name = "btnConfigAdd";
-            this.btnConfigAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnConfigAdd.Size = new System.Drawing.Size(75, 25);
             this.btnConfigAdd.TabIndex = 10;
             this.btnConfigAdd.Text = "添加";
             this.btnConfigAdd.UseVisualStyleBackColor = false;
@@ -380,9 +380,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sProgressBar,
             this.sLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 571);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 593);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(670, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(666, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 100;
             this.statusStrip1.Text = "statusStrip1";
@@ -412,28 +412,9 @@
             this.menuAbout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(670, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(666, 25);
             this.menuStrip1.TabIndex = 101;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // comboConfig
-            // 
-            this.comboConfig.DropDownHeight = 200;
-            this.comboConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboConfig.DropDownWidth = 200;
-            this.comboConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboConfig.IntegralHeight = false;
-            this.comboConfig.MaxDropDownItems = 100;
-            this.comboConfig.Name = "comboConfig";
-            this.comboConfig.Size = new System.Drawing.Size(200, 21);
-            this.comboConfig.Click += new System.EventHandler(this.comboConfig_Click);
-            // 
-            // menuAbout
-            // 
-            this.menuAbout.Name = "menuAbout";
-            this.menuAbout.Size = new System.Drawing.Size(43, 21);
-            this.menuAbout.Text = "关于";
-            this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
             // 
             // toolStripTextBox1
             // 
@@ -445,13 +426,32 @@
             this.toolStripTextBox1.Size = new System.Drawing.Size(50, 21);
             this.toolStripTextBox1.Text = "配置选择";
             // 
+            // comboConfig
+            // 
+            this.comboConfig.DropDownHeight = 200;
+            this.comboConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboConfig.DropDownWidth = 200;
+            this.comboConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboConfig.IntegralHeight = false;
+            this.comboConfig.MaxDropDownItems = 100;
+            this.comboConfig.Name = "comboConfig";
+            this.comboConfig.Size = new System.Drawing.Size(200, 23);
+            this.comboConfig.Click += new System.EventHandler(this.comboConfig_Click);
+            // 
+            // menuAbout
+            // 
+            this.menuAbout.Name = "menuAbout";
+            this.menuAbout.Size = new System.Drawing.Size(43, 21);
+            this.menuAbout.Text = "关于";
+            this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(670, 593);
+            this.ClientSize = new System.Drawing.Size(666, 615);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);
